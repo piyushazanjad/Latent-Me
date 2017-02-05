@@ -1,0 +1,44 @@
+.container{
+	width: 100%;
+}
+
+.head-logo{
+	margin-left: 0.5em;
+}
+
+.content-div{
+	height: 450px;
+	width: 98%;
+	padding: 1em 1em 1em 1em;
+}
+
+.content-div div{
+	padding: 1em 1em 1em 1em;
+}
+
+#user-image{
+	width: 350px;
+	height: 350px;
+	margin: 0 2em 0 2em;
+	margin: auto;
+	border: 8px solid #fff;
+}
+
+.card-panel{
+	height: 100%;
+	width: 100%;
+}
+
+.card-title-top {
+    color: #727272;
+    font-size: 20px;
+    font-weight: 400;
+    padding: 0px 0px;
+    border-bottom: 1px solid #eee;
+    line-height: 1.7;
+}
+
+.valign-wrapper.card-img-wrap {
+  border-bottom: 1px solid #eee;
+  min-height: 140px;
+}

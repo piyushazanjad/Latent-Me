@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My Profile</title>
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="css/materialize.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <div>
+        <nav>
+            <div class="nav-wrapper">
+                <a href="#" class="brand-logo head-logo">LATENT.ME</a>
+                <a href="#" data-activates="mobile-demo" class="button-collapse head-logo"><i class="material-icons">menu</i></a>
+                <div id="login_buttons">
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        <li><a class="modal-trigger waves-effect waves-light btn" href="#modal1">Login</a>
+                        </li>
+                        <li><a class="modal-trigger waves-effect waves-light btn" href="#register">Sign Up</a>
+                        </li>
+                    </ul>
+                    <ul class="side-nav" id="mobile-demo">
+                        <br>
+                        <li><a class="modal-trigger waves-effect waves-light btn" href="#modal1">Login</a>
+                        </li>
+                        <br>
+                        <li><a class="modal-trigger waves-effect waves-light btn" href="#register">Sign Up</a>
+                        </li>
+                    </ul>
+                </div>
+                <div id="logout_buttons" class="hide">
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        <li><a class="waves-effect waves-light btn" href="index.html">Logout</a>
+                        </li>
+                    </ul>
+                    <ul class="side-nav" id="mobile-demo">
+                        <br>
+                        <li><a class="waves-effect waves-light btn" href="index.html">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Modal Structure -->
+        <div id="modal1" class="modal">
+            <div align="center" class="modal-content">
+                <div class="row">
+                    <div class="col l12 m12 s12">
+                        <h4>Login</h4>
+                        <div class="input-field">
+                            <i class="material-icons prefix">account_circle</i>
+                            <input placeholder="Username" id="u1" type="text" class="validate" />
+                        </div>
+                        <div class="input-field">
+                            <i class="material-icons prefix">vpn_key</i>
+                            <input placeholder="Password" id="p1" type="password" class="validate" />
+                        </div>
+                        <br>
+                        <div>
+                            <button type="submit" class="waves-effect waves-light btn" onclick="checkforinput()" id="from_json">Login</button>
+                            &nbsp;&nbsp;
+                            <button class="modal-trigger waves-effect waves-light btn" href="#register" onclick="$('#modal1').closeModal()">Sign Up</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="register" class="modal modal-fixed-footer">
+            <div class="modal-header">
+                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat right ">X</a>
+            </div>
+            <div align="center" class="modal-content">
+                <h4>Sign Up!</h4>
+                <h5>Personal</h5>
+                <input placeholder="First Name" type="text" id="first_name" required/>
+                <input placeholder="Last Name" required type="text" id="last_name" />
+                <input placeholder="Username" required type="text" id="username">
+                <input placeholder="Password" required type="password" id="password" name="password" class="password" />
+                <input type="checkbox" id="showHide" />
+                <label for="showHide" id="showHideLabel">Show Password</label>
+                <br>
+                <input placeholder="Tell us About Yourself" type="text" id="yourself"></input>
+                <input placeholder="Date of Birth" required type="text" id="dob" />
+                <input placeholder="Age" required type="text" id="age" />
+                <input placeholder="E-mail ID" required type="email" id="emailid" />
+
+                <h5>Skills</h5>
+
+                <input placeholder="Languages" type="text" id="language" />
+                <input placeholder="Operating Systems" type="text" id="operating_system" />
+                <input placeholder="Databases" type="text" id="db" />
+                <input placeholder="Certifications" type="text" id="certi" />
+
+                <h5>Projects:</h5>
+
+                <div id="projectlist">
+                    <div class="project">
+                        <h6>Project Information</h6>
+                        <input type="text" class="title" placeholder="Project Title">
+                        <input type="text" class="domain" placeholder="Project Domain">
+                        <input type="text" class="desc" placeholder="Description">
+                    </div>
+                </div>
+                <br>
+                <button id="add" class="waves-effect waves-light btn">Add Project</button>
+                <br>
+                <br>
+                <input class="waves-effect waves-light btn" type="file" id="profile_file" name="userPhoto" /> &nbsp;
+                <button id="image_upload" class="waves-effect waves-light btn" onclick="upload_image()">Upload</button>
+
+            </div>
+            <div class="modal-footer">
+                <button class="waves-effect waves-light btn" type="submit" onclick="adding_to_json()" id="to_json">Register</button>
+            </div>
+        </div>
+        <div id="home_disp" align="center">
+            <div class="banner-home row card-panel z-depth-1">
+                <h1>Latent.Me</h1>
+                <h4 class="">Create your own landing page and showcase it to the world.</h4>
+            </div>
+            <div class="banner-3 row card-panel z-depth-1">
+                <h1>Create. Showcase. Get Famous.</h1>
+                <h4 class="">Describe yourself, your skills and projects.</h4>
+            </div>
+            <div class="banner-2 row card-panel z-depth-1">
+                <h1>Our Team</h1>
+                <h4 class="">Gaurang, Dipika, Piyusha, Kuldeep, Rohan, Prof. Kenytt</h4>
+            </div>
+        </div>
+        <div id="prof_disp">
+            <div class="row">
+                <div class="col s12">
+                    <ul class="tabs">
+                        <li class="tab col s3"><a class="active" href="#about">About</a>
+                        </li>
+                        <li class="tab col s3"><a href="#skills">Skills</a>
+                        </li>
+                        <li class="tab col s3"><a href="#project_disp">Projects</a>
+                        </li>
+                        <li class="tab col s3"><a href="#contact">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="about" class="row card-panel content-div">
+                <div class="col l4 m12 s12">
+                    <h3>About Me</h3>
+                    <p id="about_yourself">
+
+                    </p>
+                </div>
+                <div id="content-image" class="col l4 m12 s12">
+                    <!-- <img id="user_img" class="materialboxed z-depth-1" src=""> -->
+                </div>
+                <div id="content" class="col l4 m12 s12">
+                    <h3 class="about-subtitle">Personal</h3>
+                    <p id="show_fn"></p>
+                    <p id="show_a"></p>
+                    <p id="show_ei"></p>
+                    <p id="show_dob"></p>
+                </div>
+            </div>
+
+            <div id="skills" class="card-panel content-div">
+                <div class="row">
+                    <div class="col l6 m12 s12">
+                        <ul class="collapsible-popout z-depth-1" data-collapsible="accordion">
+                            <li>
+                                <div class="collapsible-header"><i class="material-icons">filter_drama</i>Languages</div>
+                                <div class="collapsible-body">
+                                    <p id="show_lang"></p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col l6 m12 s12">
+                        <ul class="collapsible-popout z-depth-1" data-collapsible="accordion">
+                            <li>
+                                <div class="collapsible-header"><i class="material-icons">place</i>Operating Systems</div>
+                                <div class="collapsible-body">
+                                    <p id="show_os"></p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="skills" class="row ">
+                    <div class="col l6 m12 s12">
+                        <ul class="collapsible-popout z-depth-1" data-collapsible="accordion">
+                            <li>
+                                <div class="collapsible-header"><i class="material-icons">whatshot</i>Databases</div>
+                                <div class="collapsible-body">
+                                    <p id="show_db"></p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col l6 m12 s12">
+                        <ul class="collapsible-popout z-depth-1" data-collapsible="accordion">
+                            <li>
+                                <div class="collapsible-header"><i class="material-icons">place</i>Certifications</div>
+                                <div class="collapsible-body">
+                                    <p id="show_ce"></p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="project_disp" class="row card-panel content-div">
+
+            </div>
+            <div id="contact" class="row card-panel content-div">
+                <div class="row" align="center">
+                    <form class="col l6 m12 s12 offset-l3">
+                        <h4>Please enter your contact information! :)</h4>
+                        <div class="input-field">
+                            <i class="material-icons prefix">account_circle</i>
+                            <input placeholder="Full Name" id="full_name" type="text" class="validate">
+                        </div>
+                        <div class="input-field">
+                            <i class="material-icons prefix">phone</i>
+                            <input placeholder="Phone Number" id="phone" type="text" class="validate">
+                        </div>
+                        <div class="input-field">
+                            <i class="material-icons prefix">mail</i>
+                            <input placeholder="E-mail" id="email" type="email" class="validate">
+                        </div>
+                        <div align="center">
+                            <a class="waves-effect waves-light btn" type="submit">Submit</a>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <footer class="page-footer">
+            <div class="container" align="center">
+                <p>&copy; 2014 Latent.me Inc.</p>
+            </div>
+        </footer>
+
+    </div>
+    <!--END OF CONTAINER -->
+
+</body>
+<!-- IMPORT JAVASCRIPTS -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="js/materialize.js"></script>
+<script src="js/main.js"></script>
+<script src="index.js"></script>
+
+</html>
